@@ -4,98 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Links - P4TR40</title>
-
-    <style>
-        /* Estilos base */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            transition: background-color 2s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            box-sizing: border-box;
-            padding: 20px;
-            color: white;
-        }
-
-        /* Container para as partículas, garantindo que ele ocupe a tela inteira */
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-        
-        /* O conteúdo principal deve ficar acima das partículas */
-        h1, .btn {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Estilo do Título */
-        h1 {
-            margin-bottom: 40px;
-            color: white;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* Estilos dos botões */
-        .btn {
-            display: block;
-            width: 250px;
-            max-width: 90%;
-            text-align: center;
-            padding: 15px 0;
-            margin: 10px 0;
-            border-radius: 8px;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s ease, filter 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .youtube {
-            background-color: #FF0000;
-        }
-        .youtube:hover {
-            background-color: #cc0000;
-        }
-
-        .tiktok {
-            background-color: #000000;
-        }
-        .tiktok:hover {
-            background-color: #333333;
-        }
-
-        .instagram {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-        }
-        .instagram:hover {
-            filter: brightness(85%);
-        }
-
-        /* Estilos do contador de partículas (opcional) */
-        .count-particles {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: .8em;
-            padding: 4px;
-            border-radius: 3px;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="/mypage/css/style.css">
 </head>
 <body>
 
@@ -110,11 +20,11 @@
     <a class="btn tiktok" href="https://www.tiktok.com/@patraoyt1" target="_blank" rel="noopener noreferrer">TikTok</a>
     <a class="btn instagram" href="https://www.instagram.com/patraoyt1" target="_blank" rel="noopener noreferrer">Instagram</a>
 
-    <script src="js/particles.min.js"></script>
-    <script src="js/stats.min.js"></script>
+    <script src="/mypage/js/particles.min.js"></script>
+    <script src="/mypage/js/stats.min.js"></script>
     
     <script>
-        particlesJS.load('particles-js', 'particles.json', function() {
+        particlesJS.load('particles-js', '/mypage/js/particles.json', function() {
             console.log('callback - particles.js config loaded');
         });
         
@@ -136,6 +46,18 @@
             requestAnimationFrame(update);
         };
         requestAnimationFrame(update);
+
+        // Função para mudar a cor de fundo dinamicamente
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const colors = ['#173bde', '#de1717', '#17de50'];
+            let colorIndex = 0;
+            const body = document.body;
+
+            setInterval(() => {
+                colorIndex = (colorIndex + 1) % colors.length;
+                body.style.backgroundColor = colors[colorIndex];
+            }, 5000);
+        });
     </script>
 </body>
 </html>
